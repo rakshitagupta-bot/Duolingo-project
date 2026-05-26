@@ -733,6 +733,62 @@
     .maya-row { grid-template-columns: 1fr; }
     .maya-card { flex-direction: column; gap: 16px; }
   }
+
+/* FLOATING ACTION BUTTON (PROTOTYPE) */
+  .fab-container {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the container perfectly */
+    z-index: 9999;
+    width: max-content; /* Hugs the button size */
+  }
+
+  .duo-fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #1CB0F6; /* Duolingo Blue */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 16px 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 0 #1899D6;
+    /* Springy cubic-bezier transition for that playful Duolingo feel */
+    transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                filter 0.15s;
+  }
+
+  .duo-fab:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px); /* Lifts up slightly on hover */
+    box-shadow: 0 6px 0 #1899D6; /* Shadow gets deeper to match the lift */
+  }
+
+  .duo-fab:active {
+    transform: translateY(4px); /* Smashes all the way down to the base */
+    box-shadow: 0 0 0 #1899D6; /* Shadow disappears on click */
+    transition: transform 0.05s, box-shadow 0.05s; /* Faster, snappy transition on click */
+  }
+
+  /* Keep it centered but wide on mobile screens */
+  @media (max-width: 640px) {
+    .fab-container {
+      bottom: 24px;
+      width: calc(100% - 48px); /* Stretches across screen with 24px margins */
+    }
+    .duo-fab {
+      width: 100%;
+      padding: 18px 24px;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -1145,34 +1201,14 @@
     </table>
   </div>
 
-  <!-- 12. WHY THIS PM -->
-  <div class="section">
-    <h2>Why This PM</h2>
-    <div class="pm-card">
-      <p style="margin-top:0;">Rakshita built Mastry, an edtech product for adult learners. The core problem -- adults who want to learn but leave before forming a habit -- is the same structural challenge as the one in this proposal.</p>
-      <div class="pm-stat-row">
-        <div class="pm-stat">
-          <span class="stat-number">32%</span>
-          <span class="stat-label">Baseline completion</span>
-        </div>
-        <div class="pm-stat">
-          <span class="stat-number">51%</span>
-          <span class="stat-label">Post-intervention</span>
-        </div>
-        <div class="pm-stat">
-          <span class="stat-number">+19pp</span>
-          <span class="stat-label">Net improvement (6 months)</span>
-        </div>
-      </div>
-      <p style="margin-top:0;">The interventions that drove that improvement:</p>
-      <div class="pm-interventions">
-        <div class="pm-intervention">Intent anchoring at sign-up -- asking users what they came to do before they did anything else.</div>
-        <div class="pm-intervention">Removing one friction point from the first session -- the moment where users were most likely to leave.</div>
-        <div class="pm-intervention">A personalized recovery prompt at the 48-hour mark for users who hadn't returned after their first session.</div>
-      </div>
-      <p>These are the same patterns this proposal is built on. The experiments here aren't hypothetical -- they're a version of something that has already moved a real metric in a real product.</p>
-    </div>
+<!-- FLOATING PROTOTYPE BUTTON -->
+  <div class="fab-container">
+    <a href="DUOLINGO_MATH_PROTOTYPE.html" class="duo-fab">
+      <span style="font-size: 1.4rem; line-height: 1;">📱</span> 
+      See Prototype
+    </a>
   </div>
+
 
   <!-- FOOTER -->
   <div class="footer">
